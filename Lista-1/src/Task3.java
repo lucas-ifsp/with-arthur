@@ -4,7 +4,7 @@ public class Task3 {
     public static void main(String[] args) {
         System.out.print("Type a number: ");
 
-        final var scanner = new Scanner(System.in); //yes, Java has type inference for local variables
+        final var scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         scanner.close();
 
