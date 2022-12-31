@@ -10,7 +10,8 @@ public class Task3 {
 
         while (number != 1) {
             number = (number % 2 == 0) ? number / 2 : number * 3 + 1;
-            System.out.print(number);
+            var possibleComma = number != 1 ? ", " : "";
+            System.out.print(number + possibleComma);
         }
     }
 }
