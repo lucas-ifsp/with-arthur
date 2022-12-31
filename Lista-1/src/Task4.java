@@ -2,22 +2,23 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
-        System.out.println("Type a number: ");
+        System.out.print("Type a number: ");
 
         final var scanner = new Scanner(System.in);
         final int fibonacciNumber = scanner.nextInt();
         scanner.close();
 
         //Recursive method
+        System.out.print("Result (Recursive): ");
         for (int i = 0; i < fibonacciNumber; i++) {
-            System.out.println("Result (Recursive): " + recursiveFibonacci(i));
+            String possibleComma = (i < fibonacciNumber - 1) ? ", " : "\n";
+            System.out.print(recursiveFibonacci(i) + possibleComma);
         }
 
-        System.out.println();
-
-        //Iterative method
-        for (int j = 0; j < fibonacciNumber; j++) {
-            System.out.println("Result (Iterative): " + iterativeFibonacci(j));
+        System.out.print("Result (Iterative): ");
+        for (int i = 0; i < fibonacciNumber; i++) {
+            String possibleComma = (i < fibonacciNumber - 1) ? ", " : "";
+            System.out.print(iterativeFibonacci(i) + possibleComma);
         }
     }
 
