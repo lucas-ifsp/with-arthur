@@ -4,24 +4,18 @@ import java.util.Map;
 
 public class Task8 {
     public static void main(String[] args) {
-
-        ArrayList<Integer> results = new ArrayList<>();
-        Map<Integer, Integer> statistics = new HashMap<>();
+        final var statistics = new HashMap<Integer, Integer>();
         for (int i = 2; i <= 12; i++) {
             statistics.put(i, 0);
         }
 
-
-
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 100_000; i++) {
             int firstDice = throwDice();
             int secondDice = throwDice();
             int sum = firstDice + secondDice;
-            results.add(sum);
-        }
-
-        for (int number : results){
-            statistics.replace(number, statistics.get(number) + 1);
+            statistics.putIfAbsent(sum, 0); //initialize key if absent
+            statistics.replace(sum, statistics.get(sum) + 1);
+            //we can do even better with map.merge and method references. Wait for it! (next commit)
         }
 
         for (Integer key : statistics.keySet()){
