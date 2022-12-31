@@ -2,16 +2,20 @@ import java.util.Scanner;
 
 public class Task5 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         double[] temperatures = new double[7];
         double average = 0;
         int temperaturesHigherThanAverage = 0;
 
-        for(int i = 1; i <= 7; i++){
-            System.out.println("Qual a temperatura do dia "+i+"? ");
-            temperatures[i-1] = scanner.nextDouble();
-            average += temperatures[i-1];
+        final var scanner = new Scanner(System.in);
+        for(int i = 0; i < 7; i++){
+            System.out.print("Digite a temperatura do dia " + (i + 1) +": ");
+            temperatures[i] = scanner.nextDouble();
+            // notice that the variable 'average' is lying here. This is the current sum, not the average.
+            // we will fix it in the next commit.
+            average += temperatures[i];
         }
+        scanner.close();
+
         average /= 7;
         for (double temperature : temperatures){
             if (temperature > average){
