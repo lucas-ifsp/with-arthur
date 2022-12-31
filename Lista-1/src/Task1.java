@@ -6,8 +6,9 @@ public class Task1 {
         Scanner scanner = new Scanner(System.in);
         // notice that we don't need a global counting variable (we can simply use 'for' scoped variable "i")
         //int totalNumbers = 0;
-        int smallerNumber = 1000000000;
-        int higherNumber = 0;
+        //int smallerNumber = 1000000000; // what would happen if the smallest number turned to be 1000000001?
+        //int higherNumber = 0; // what would happen if the biggest number turned to be -1?
+
         int[] integers = new int[5];
 
         //prompt
@@ -25,17 +26,20 @@ public class Task1 {
         }
         scanner.close();
 
+        int biggestNumber = integers[0]; // the first is always the biggest when only the first is known
+        int smallerNumber = integers[0]; // same idea
+
         //Finding numbers
         for (int integer : integers) {
-            if (integer > higherNumber) {
-                higherNumber = integer;
+            if (integer > biggestNumber) {
+                biggestNumber = integer;
             } else if (integer < smallerNumber) {
                 smallerNumber = integer;
             }
         }
 
         //Printing results
-        System.out.println("Higher Number: " + higherNumber);
+        System.out.println("Higher Number: " + biggestNumber);
         System.out.println("Smaller Number: " + smallerNumber);
     }
 }
