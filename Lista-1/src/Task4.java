@@ -30,18 +30,18 @@ public class Task4 {
 
     //Iterative method
     public static int iterativeFibonacci(int number) {
-        int fibonacci = 0;
-        int previousFibonacci = 0;
+        if(number == 0) return 0; // result base cases asap (and in case of problems, throw asap to ("crash, don't trash!")
+        if(number == 1) return 1;
 
-        for (int i = 1; i <= number; i++) {
-            if (i == 1) {
-                fibonacci = 1;
-                previousFibonacci = 0;
-            } else {
-                fibonacci += previousFibonacci;
-                previousFibonacci = fibonacci - previousFibonacci;
-            }
+        int prevPrev = 0;
+        int prev = 1;
+        int current = 0;
+
+        for (int i = 2; i <= number; i++) {
+            current = prevPrev + prev;
+            prevPrev = prev;
+            prev = current;
         }
-        return fibonacci;
+        return current;
     }
 }
