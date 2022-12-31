@@ -6,6 +6,13 @@ import java.util.Scanner;
 public class Task10 {
     public static void main(String[] args) {
 
+        /**Esse é "difícil", está na lista de pegadinha. Dá para resolver com algoritmo guloso (greedy)
+         * normal ou recursivo (o que não chega a uma solução ótima e caro computacionalmente) ou
+         * com programação dinâmica (dynamic programming). Se você é masoquista, estude o problema
+         * aqui https://en.wikipedia.org/wiki/Change-making_problem e
+         * aqui:https://www.geeksforgeeks.org/coin-change-dp-7/
+         */
+
         // A LISTA É MODIFICAVEL, OBVIAMENTE;
         double[] moedas = {200, 100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.1, 0.05, 0.01};
         Map<Double, Integer> coins = new HashMap<>();
