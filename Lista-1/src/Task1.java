@@ -2,23 +2,23 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        final int[] integers = new int[5];
+        final int[] numbers = new int[5];
         final Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < integers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             System.out.print("Write an int number: ");
-            integers[i] = scanner.nextInt();
+            numbers[i] = scanner.nextInt();
         }
         scanner.close();
 
-        int biggestNumber = integers[0];
-        int smallerNumber = integers[0];
+        int biggest = numbers[0];
+        int smallest = numbers[0];
 
-        for (int number : integers) {
-            if (number > biggestNumber) biggestNumber = number;
-            if (number < smallerNumber) smallerNumber = number;
+        for (int number : numbers) {
+            if (number > biggest) biggest = number;
+            if (number < smallest) smallest = number;
         }
-        System.out.println("Biggest number: " + biggestNumber);
-        System.out.println("Smallest number: " + smallerNumber);
+        System.out.println("Biggest number: " + biggest);
+        System.out.println("Smallest number: " + smallest);
     }
 }
