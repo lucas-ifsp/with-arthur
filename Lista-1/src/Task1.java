@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        int[] integers = new int[5];
-        Scanner scanner = new Scanner(System.in);
+        final int[] integers = new int[5];
+        final Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < integers.length; i++) {
             System.out.print("Write an int number: ");
