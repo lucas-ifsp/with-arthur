@@ -2,13 +2,22 @@ import java.util.Scanner;
 
 public class Task9 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o dinheiro que Xozé possui: ");
+        var scanner = new Scanner(System.in);
+
+        System.out.print("Digite o dinheiro que Xozé possui: ");
         double money = scanner.nextDouble();
-        System.out.println("Digite o preço do Chocolate: ");
+
+        System.out.print("Digite o preço do chocolate: ");
         double price = scanner.nextDouble();
-        System.out.println("Quantas embalagens para um chocolate grátis?: ");
+
+        System.out.print("Digite embalagens para um chocolate grátis?: ");
         int freeGift = scanner.nextInt();
+
+        if(freeGift <= 1) {
+            System.out.println("Erro! O número de embalagens deve ser maior que um.");
+            return; //returns from main. In other words, ends the program.
+        }
+
         if (price > money){
             System.out.println("Xozé ta duro e n pode comprar nenhum chocolate");
         } else if (price == money) {
