@@ -30,16 +30,12 @@ public class Task1 {
         int smallerNumber = integers[0]; // same idea
 
         //Finding numbers
-        for (int integer : integers) {
-            if (integer > biggestNumber) {
-                biggestNumber = integer;
-            } else if (integer < smallerNumber) {
-                smallerNumber = integer;
-            }
+        for (int number : integers) {
+            if (number > biggestNumber) biggestNumber = number;
+            if (number < smallerNumber) smallerNumber = number;
         }
-
         //Printing results
-        System.out.println("Higher Number: " + biggestNumber);
-        System.out.println("Smaller Number: " + smallerNumber);
+        System.out.println("Biggest number: " + biggestNumber);
+        System.out.println("Smallest number: " + smallerNumber);
     }
 }
