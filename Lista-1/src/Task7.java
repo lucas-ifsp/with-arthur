@@ -2,21 +2,24 @@ import java.util.Scanner;
 
 public class Task7 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] vetor = new int[5];
-        int sumPairs = 0;
-        int sumOdds = 0;
+        int[] numbers = new int[5];
+        final var scanner = new Scanner(System.in);
+
+        System.out.print("Type five numbers: ");
         for (int i = 0; i < 5; i++) {
-            System.out.println("Type a number for the Vetor: ");
-            vetor[i] = scanner.nextInt();
+            numbers[i] = scanner.nextInt();
         }
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] % 2 == 0){
-                sumPairs += vetor[i];
+        scanner.close();
+
+        int sumOfEvens = 0;
+        int sumOfOdds = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 == 0){
+                sumOfEvens += numbers[i];
             } else {
-                sumOdds += vetor[i];
+                sumOfOdds += numbers[i];
             }
         }
-        System.out.println("Sum of pair numbers: " + sumPairs + "\t Sum of odd numbers: " + sumOdds);
+        System.out.println("Sum of pair numbers: " + sumOfEvens + "\t Sum of odd numbers: " + sumOfOdds);
     }
 }
