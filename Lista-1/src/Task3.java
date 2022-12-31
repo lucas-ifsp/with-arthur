@@ -9,13 +9,8 @@ public class Task3 {
         scanner.close();
 
         while (number != 1) {
-            if (number % 2 == 0){
-                number = number / 2;
-                System.out.println(number);
-            } else {
-                number = number * 3 + 1;
-                System.out.println(number);
-            }
+            number = (number % 2 == 0) ? number / 2 : number * 3 + 1;
+            System.out.print(number);
         }
     }
 }
