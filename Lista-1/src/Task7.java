@@ -13,13 +13,11 @@ public class Task7 {
 
         int sumOfEvens = 0;
         int sumOfOdds = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 == 0){
-                sumOfEvens += numbers[i];
-            } else {
-                sumOfOdds += numbers[i];
-            }
+        for (int number : numbers) {
+            if (number % 2 == 0) sumOfEvens += number;
+            else sumOfOdds += number;
         }
-        System.out.println("Sum of pair numbers: " + sumOfEvens + "\t Sum of odd numbers: " + sumOfOdds);
+
+        System.out.println("Sum of even numbers: " + sumOfEvens + "\t Sum of odd numbers: " + sumOfOdds);
     }
 }
