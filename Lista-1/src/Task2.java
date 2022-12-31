@@ -10,10 +10,7 @@ public class Task2 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write a Number:");
         int factorialNumber = scanner.nextInt();
-        int resultFactorialMethod = recursiveFactorial(factorialNumber);
-        System.out.println("Result of Factorial (recursive method): " + resultFactorialMethod);
-
-
+        System.out.println("Result of Factorial (recursive method): " + recursiveFactorial(factorialNumber));
         System.out.println("Result of Factorial (iterative method): " + iterativeFactorial(factorialNumber));
     }
 
