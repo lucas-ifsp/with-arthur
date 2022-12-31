@@ -23,12 +23,16 @@ public class Task2 {
         System.out.println("Result of Factorial (recursive method): " + resultFactorialMethod);
 
 
-        //Iterative method
-        int factorialResult = factorialNumber;
-        scanner.close();
-        for (int i = 1; i < factorialNumber; factorialNumber--) {
-            factorialResult *= factorialNumber - 1;
+        System.out.println("Result of Factorial (iterative method): " + iterativeFactorial(factorialNumber));
+    }
+
+    //notice that good method name makes comments explaining chunks of code unnecessary
+    public static int iterativeFactorial(int number){
+        int result = 1;
+        for (int i = 1; i <= number; i++) {
+             result *= i;
         }
-        System.out.println("Result of Factorial (iterative method): " + factorialResult);
+        return result;
     }
 }
+
