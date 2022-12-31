@@ -5,17 +5,16 @@ import java.util.Map;
 public class Task8 {
     public static void main(String[] args) {
         final var statistics = new HashMap<Integer, Integer>();
-        for (int i = 2; i <= 12; i++) {
+
+        //this chunk of code was not necessary in the previous commit (neither in this one)
+        /*for (int i = 2; i <= 12; i++) {
             statistics.put(i, 0);
-        }
+        }*/
 
         for (int i = 0; i < 100_000; i++) {
-            int firstDice = throwDice();
-            int secondDice = throwDice();
-            int sum = firstDice + secondDice;
-            statistics.putIfAbsent(sum, 0); //initialize key if absent
-            statistics.replace(sum, statistics.get(sum) + 1);
-            //we can do even better with map.merge and method references. Wait for it! (next commit)
+            int sumOfDices = throwDice() + throwDice();
+            //take a look in Java functional programming to better understand :: and some additional stuff
+            statistics.merge(sumOfDices, 1, Integer::sum);
         }
 
         for (Integer key : statistics.keySet()){
