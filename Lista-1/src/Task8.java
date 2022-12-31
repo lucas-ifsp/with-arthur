@@ -11,15 +11,11 @@ public class Task8 {
             statistics.put(i, 0);
         }
 
-        class Dado {
-            public static int jogarDado(){
-                return 1 + (int)(Math.random()*6);
-            }
-        }
+
 
         for (int i = 0; i < 100000; i++) {
-            int firstDice = Dado.jogarDado();
-            int secondDice = Dado.jogarDado();
+            int firstDice = throwDice();
+            int secondDice = throwDice();
             int sum = firstDice + secondDice;
             results.add(sum);
         }
@@ -35,5 +31,7 @@ public class Task8 {
         }
     }
 
-
+    public static int throwDice(){
+        return (int) (1 + (Math.random() * 6));
+    }
 }
