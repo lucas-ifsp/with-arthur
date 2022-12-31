@@ -14,7 +14,7 @@ public class Task7 {
             if (vetor[i] % 2 == 0){
                 sumPairs += vetor[i];
             } else {
-                sumOdds =+ vetor[i];
+                sumOdds += vetor[i];
             }
         }
         System.out.println("Sum of pair numbers: " + sumPairs + "\t Sum of odd numbers: " + sumOdds);
