@@ -8,7 +8,6 @@ public class Task4 {
         final int fibonacciNumber = scanner.nextInt();
         scanner.close();
 
-        //Recursive method
         System.out.print("Result (Recursive): ");
         for (int i = 0; i < fibonacciNumber; i++) {
             String possibleComma = (i < fibonacciNumber - 1) ? ", " : "\n";
@@ -22,16 +21,13 @@ public class Task4 {
         }
     }
 
-
-    //Recursive method
     public static int recursiveFibonacci(int number) {
         if (number == 0 || number == 1) return number;
         return recursiveFibonacci(number - 1) + recursiveFibonacci(number - 2);
     }
 
-    //Iterative method
     public static int iterativeFibonacci(int number) {
-        if(number == 0) return 0; // result base cases asap (and in case of problems, throw asap to ("crash, don't trash!")
+        if(number == 0) return 0;
         if(number == 1) return 1;
 
         int prevPrev = 0;
