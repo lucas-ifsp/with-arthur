@@ -7,9 +7,12 @@ public class Task2 {
         //class Factorial {
         //}
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Write a Number:");
-        int factorialNumber = scanner.nextInt();
+        System.out.println("Write a number:");
+
+        final Scanner scanner = new Scanner(System.in);
+        final int factorialNumber = scanner.nextInt();
+        scanner.close();
+
         System.out.println("Result of Factorial (recursive method): " + recursiveFactorial(factorialNumber));
         System.out.println("Result of Factorial (iterative method): " + iterativeFactorial(factorialNumber));
     }
