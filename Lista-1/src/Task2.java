@@ -2,12 +2,7 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-
-        //avoid using inner classes (it is not a good practice in most cases)
-        //class Factorial {
-        //}
-
-        System.out.println("Write a number:");
+        System.out.print("Write a number: ");
 
         final Scanner scanner = new Scanner(System.in);
         final int factorialNumber = scanner.nextInt();
@@ -17,7 +12,6 @@ public class Task2 {
         System.out.println("Result of Factorial (iterative method): " + iterativeFactorial(factorialNumber));
     }
 
-    //notice that good method name makes comments explaining chunks of code unnecessary
     public static int iterativeFactorial(int number){
         int result = 1;
         for (int i = 1; i <= number; i++) {
