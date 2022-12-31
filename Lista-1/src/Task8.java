@@ -1,26 +1,20 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Task8 {
+
+    public static final int NUMBER_OF_THROWS = 100_000;
+
     public static void main(String[] args) {
         final var statistics = new HashMap<Integer, Integer>();
 
-        //this chunk of code was not necessary in the previous commit (neither in this one)
-        /*for (int i = 2; i <= 12; i++) {
-            statistics.put(i, 0);
-        }*/
-
-        for (int i = 0; i < 100_000; i++) {
+        for (var i = 0; i < NUMBER_OF_THROWS; i++) {
             int sumOfDices = throwDice() + throwDice();
-            //take a look in Java functional programming to better understand :: and some additional stuff
             statistics.merge(sumOfDices, 1, Integer::sum);
         }
 
-        for (Integer key : statistics.keySet()){
-            double percentual = (double) statistics.get(key) / 1000;
-            double realPercentual = Math.round(percentual * 100.0)/100.0;
-            System.out.println("Percentual of sum " + key + ": " + realPercentual +"% (" + statistics.get(key) + " cases)");
+        for (var key : statistics.keySet()){
+            double percentage = (double) statistics.get(key) / NUMBER_OF_THROWS * 100;
+            System.out.printf("Percentage of sum %d: %.2f%% (%d cases)\n", key, percentage, statistics.get(key));
         }
     }
 
