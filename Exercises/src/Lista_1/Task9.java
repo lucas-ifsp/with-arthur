@@ -1,3 +1,5 @@
+package Lista_1;
+
 import java.util.Scanner;
 
 public class Task9 {
