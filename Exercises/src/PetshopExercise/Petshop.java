@@ -19,10 +19,12 @@ public class Petshop {
     }
 
     public void addCliente(Pessoa cliente){
-        this.clientes.put(cliente.getCpf(), cliente);
+        this.clientes.putIfAbsent(cliente.getCpf(), cliente);
     }
 
     public void addCachorro(String cpf, Cachorro cachorro){
+        if (this.clientes.get(cpf) == null)
+            throw new IllegalArgumentException("Cliente não existe");
         this.clientes.get(cpf).addCachorro(cachorro);
     }
 
@@ -33,17 +35,21 @@ public class Petshop {
     }
 
     public void listarCachorros(String cpf){
+        if (this.clientes.get(cpf) == null) throw new RuntimeException("Cliente não Existe");
         for (Cachorro cachorro : clientes.get(cpf).getCachorros()){
             System.out.println(cachorro.toString() + " \t");
         }
     }
 
     public void removeCliente(String cpf){
+        if (this.clientes.get(cpf) == null) throw new RuntimeException("Cliente não Existe");
         this.clientes.remove(cpf);
     }
 
     public void removerCachorro(String cpf, String nomeCachorro){
+        if (this.clientes.get(cpf) == null) throw new RuntimeException("Cliente não Existe");
         Pessoa pessoa = this.clientes.get(cpf);
+        if (!pessoa.getCachorros().contains(nomeCachorro));
         pessoa.removerCachorro(nomeCachorro);
     }
 
@@ -51,7 +57,7 @@ public class Petshop {
         for(String cpf : this.clientes.keySet()){
             for (Cachorro c : this.clientes.get(cpf).getCachorros()){
                 if (c.isVacinado()){
-                    System.out.println(c + " \t");
+                    System.out.println(c + " \n");
                 }
             }
         }
@@ -60,7 +66,7 @@ public class Petshop {
     public void listarVacinadosPorCliente(String cpf){
         for (Cachorro c : this.clientes.get(cpf).getCachorros()){
             if (c.isVacinado()){
-                System.out.println(c + " \t");
+                System.out.println(c + " \n");
             }
         }
     }

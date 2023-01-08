@@ -43,29 +43,25 @@ public class Main {
 
 
         class Zoologico{
-            public Animal[] array = new Animal[10];
+            public final Animal[] array = new Animal[10];
         }
 
-        Zoologico zoologico = new Zoologico();
-        zoologico.array[0] = new Coruja();
-        zoologico.array[1] = new Leao();
-        zoologico.array[2] = new Lobo();
-        zoologico.array[3] = new Lobo();
-        zoologico.array[4] = new Coruja();
-        zoologico.array[5] = new Leao();
-        zoologico.array[6] = new Lobo();
-        zoologico.array[7] = new Coruja();
-        zoologico.array[8] = new Leao();
-        zoologico.array[9] = new Coruja();
+        final var zoological = new Zoologico();
+        zoological.array[0] = new Coruja();
+        zoological.array[1] = new Leao();
+        zoological.array[2] = new Lobo();
+        zoological.array[3] = new Lobo();
+        zoological.array[4] = new Coruja();
+        zoological.array[5] = new Leao();
+        zoological.array[6] = new Lobo();
+        zoological.array[7] = new Coruja();
+        zoological.array[8] = new Leao();
+        zoological.array[9] = new Coruja();
 
-        for (Animal animal : zoologico.array){
+        for (Animal animal : zoological.array){
             animal.emitirSom();
-            if (animal instanceof Leao){
-                ((Leao) animal).correr();
-            }
-            if (animal instanceof Lobo){
-                ((Lobo) animal).correr();
-            }
+            if (animal instanceof Leao) ((Leao) animal).correr();
+            if (animal instanceof Lobo) ((Lobo) animal).correr();
         }
 
 
