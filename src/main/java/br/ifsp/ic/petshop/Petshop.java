@@ -16,34 +16,36 @@ public class Petshop {
     }
 
     public void addCachorro(String cpf, Cachorro cachorro){
-        if (clientes.get(cpf) == null)
+        if (!clientes.containsKey(cpf))
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
         final Pessoa pessoa = clientes.get(cpf); // More readable. Avoid chaining.
         pessoa.addCachorro(cachorro);
     }
 
     public void listarClientes(){
-        for (String cpf : clientes.keySet()){
-            System.out.println(clientes.get(cpf)); //toString is called implicitly
+        for (Pessoa pessoa : clientes.values()) {
+            System.out.println(pessoa);
         }
+        //or simpler: clientes.values().forEach(System.out::println);
     }
 
     public void listarCachorros(String cpf){
-        if (clientes.get(cpf) == null)
+        if (!clientes.containsKey(cpf))
             throw new IllegalArgumentException("Cpf passado não possui cliente cadastrado no sistema");
-        for (Cachorro cachorro : clientes.get(cpf).getCachorros()){
+        final Pessoa pessoa = clientes.get(cpf);
+        for (Cachorro cachorro : pessoa.getCachorros()) {
             System.out.println(cachorro);
         }
     }
 
     public void removeCliente(String cpf){
-        if (clientes.get(cpf) == null)
+        if (!clientes.containsKey(cpf))
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
         clientes.remove(cpf);
     }
 
     public void removerCachorro(String cpf, String nomeCachorro){
-        if (clientes.get(cpf) == null)
+        if (!clientes.containsKey(cpf))
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
         Pessoa pessoa = clientes.get(cpf);
         if (!pessoa.hasCachorro(nomeCachorro))
