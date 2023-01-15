@@ -5,19 +5,11 @@ import java.util.Map;
 
 public class Petshop {
 
-    private Map<String, Pessoa> clientes = new HashMap<>();
+    private final Map<String, Pessoa> clientes = new HashMap<>();
 
     public Petshop() {
     }
-
-    public Map<String, Pessoa> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(Map<String, Pessoa> clientes) {
-        this.clientes = clientes;
-    }
-
+    
     public void addCliente(Pessoa cliente){
         this.clientes.putIfAbsent(cliente.getCpf(), cliente);
     }

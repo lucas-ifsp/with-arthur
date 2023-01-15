@@ -40,6 +40,8 @@ public class Pessoa {
     }
 
     public void removerCachorro(String nome){
+        //the same, but using lambda function.
+        //cachorros.removeIf(cachorro -> cachorro.getNome().equals(nome));
         for (int i = 0; i < cachorros.size(); i++) {
             if (cachorros.get(i).getNome().equals(nome)){
                 cachorros.remove(i);
