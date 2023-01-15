@@ -19,4 +19,10 @@ public class Triangle extends Figure {
         double p = (l1 + l2 + l3)/2;
         return Math.sqrt(p * (p - l1) * (p - l2) * (p - l3));
     }
+
+    @Override
+    public String toString() {
+        return String.format("Triangle (%d, %d) with l1 %.2f, l2 %.2f, and l3 %.2f. Area = %.2f",
+                getX(), getY(), l1, l2, l3, area());
+    }
 }
