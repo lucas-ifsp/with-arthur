@@ -2,9 +2,9 @@ package br.ifsp.ic.figures;
 
 public class Triangle extends Figure {
 
-    private double l1;
-    private double l2;
-    private double l3;
+    private final double l1;
+    private final double l2;
+    private final double l3;
 
     public Triangle(int x, int y, double l1, double l2, double l3) {
         super(x, y);
@@ -15,6 +15,8 @@ public class Triangle extends Figure {
 
     @Override
     public double area(){
-        return Math.pow(l1, 2) * Math.sqrt(3) / 4;
+        //https://pt.wikipedia.org/wiki/Teorema_de_Herão
+        double p = (l1 + l2 + l3)/2;
+        return Math.sqrt(p * (p - l1) * (p - l2) * (p - l3));
     }
 }
