@@ -61,12 +61,11 @@ public class Petshop {
     }
 
     public void listarVacinadosPorCliente(String cpf){
-        if (clientes.get(cpf) == null)
-            throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
-        for (Cachorro c : clientes.get(cpf).getCachorros()){ //wrong way of iterating maps.
-            if (c.isVacinado()){
-                System.out.println(c + " \n");
-            }
+        if (!clientes.containsKey(cpf))
+            System.out.println("Não há cachorros a se exibir."); //Exceptions are for exceptional cases. ;)
+        final Pessoa pessoa = clientes.get(cpf);
+        for (Cachorro vacinado : pessoa.getVacinados()) {
+            System.out.println(vacinado);
         }
     }
 }
