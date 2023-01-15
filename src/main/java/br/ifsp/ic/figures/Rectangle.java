@@ -1,4 +1,4 @@
-package br.ifsp.ic.ClassFourImplementationExercise;
+package br.ifsp.ic.figures;
 
 public class Rectangle extends Figure {
 
