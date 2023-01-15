@@ -8,7 +8,7 @@ public class Pessoa {
 
     private String nome;
     private String cpf;
-    private List<Cachorro> cachorros = new ArrayList<>();
+    private final List<Cachorro> cachorros = new ArrayList<>();
 
     public Pessoa(String nome, String cpf) {
         this.nome = nome;
@@ -33,10 +33,6 @@ public class Pessoa {
 
     public List<Cachorro> getCachorros() {
         return cachorros;
-    }
-
-    public void setCachorros(List<Cachorro> cachorros) {
-        this.cachorros = cachorros;
     }
 
     public void addCachorro(Cachorro cachorro){
