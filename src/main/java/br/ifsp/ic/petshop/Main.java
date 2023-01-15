@@ -7,7 +7,7 @@ public class Main {
 
         final var petshop = new Petshop();
         final var scanner = new Scanner(System.in);
-        int opc = 0;
+        int opc;
 
         do {
             System.out.println("1. Adicionar Cliente");
@@ -48,7 +48,7 @@ public class Main {
                     String racaCachorro = scanner.nextLine();
 
                     System.out.println("Cachorro é vacinado? (1=Sim, 2=Não)");
-                    Boolean vacinado = (scanner.nextInt() == 1) ? true : false;
+                    boolean vacinado = scanner.nextInt() == 1;
 
                     Cachorro cachorro = new Cachorro(nomeCachorro, racaCachorro, vacinado);
                     petshop.addCachorro(cpf, cachorro);
