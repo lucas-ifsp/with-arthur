@@ -11,26 +11,27 @@ public class Petshop {
     }
 
     public void addCliente(Pessoa cliente){
-        this.clientes.putIfAbsent(cliente.getCpf(), cliente);
+        clientes.putIfAbsent(cliente.getCpf(), cliente);
     }
 
     public void addCachorro(String cpf, Cachorro cachorro){
         if (clientes.get(cpf) == null)
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
-        clientes.get(cpf).addCachorro(cachorro);
+        final Pessoa pessoa = clientes.get(cpf); // More readable. Avoid chaining.
+        pessoa.addCachorro(cachorro);
     }
 
     public void listarClientes(){
         for (String cpf : clientes.keySet()){
-            System.out.println(clientes.get(cpf).toString() + " \n");
+            System.out.println(clientes.get(cpf)); //toString is called implicitly
         }
     }
 
     public void listarCachorros(String cpf){
         if (clientes.get(cpf) == null)
-            throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
+            throw new IllegalArgumentException("Cpf passado não possui cliente cadastrado no sistema");
         for (Cachorro cachorro : clientes.get(cpf).getCachorros()){
-            System.out.println(cachorro.toString() + " \n");
+            System.out.println(cachorro);
         }
     }
 
