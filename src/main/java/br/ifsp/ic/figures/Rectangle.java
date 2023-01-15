@@ -15,4 +15,10 @@ public class Rectangle extends Figure {
     public double area(){
         return width * length;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Rectangle (%d, %d) with width %.2f and length %.2f. Area = %.2f",
+                getX(), getY(), width, length, area());
+    }
 }
