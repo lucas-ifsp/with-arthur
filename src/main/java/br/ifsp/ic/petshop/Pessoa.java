@@ -57,6 +57,16 @@ public class Pessoa {
         }
     }
 
+    public List<Cachorro> getVacinados(){
+        List<Cachorro> vacinados = new ArrayList<>();
+        for (Cachorro cachorro : cachorros) {
+            if(cachorro.isVacinado()) vacinados.add(cachorro);
+        }
+        return vacinados;
+        //or simpler: return cachorros.stream().filter(cachorro -> cachorro.isVacinado()).toList();
+        //or even more simple: return cachorros.stream().filter(Cachorro::isVacinado).toList();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

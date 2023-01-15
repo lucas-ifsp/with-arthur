@@ -1,6 +1,7 @@
 package br.ifsp.ic.petshop;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Petshop {
@@ -51,11 +52,10 @@ public class Petshop {
     }
 
     public void listarTodosVacinados(){
-        for(String cpf : clientes.keySet()){
-            for (Cachorro c : clientes.get(cpf).getCachorros()){
-                if (c.isVacinado()){
-                    System.out.println(c + " \n");
-                }
+        for(Pessoa pessoa : clientes.values()){
+            final List<Cachorro> vacinados = pessoa.getVacinados();
+            for (Cachorro vacinado : vacinados) {
+                System.out.println(vacinado);
             }
         }
     }
@@ -63,7 +63,7 @@ public class Petshop {
     public void listarVacinadosPorCliente(String cpf){
         if (clientes.get(cpf) == null)
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
-        for (Cachorro c : clientes.get(cpf).getCachorros()){
+        for (Cachorro c : clientes.get(cpf).getCachorros()){ //wrong way of iterating maps.
             if (c.isVacinado()){
                 System.out.println(c + " \n");
             }
