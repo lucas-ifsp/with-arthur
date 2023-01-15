@@ -2,8 +2,8 @@ package br.ifsp.ic.figures;
 
 public class Rectangle extends Figure {
 
-    private double width;
-    private double length;
+    private final double width;
+    private final double length;
 
     public Rectangle(int x, int y, double width, double length) {
         super(x, y);
