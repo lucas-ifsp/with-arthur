@@ -1,4 +1,4 @@
-package br.ifsp.ic.Lista_1;
+package br.ifsp.ic.list;
 
 import java.util.HashMap;
 import java.util.Map;

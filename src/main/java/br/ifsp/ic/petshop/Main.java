@@ -1,4 +1,4 @@
-package br.ifsp.ic.PetshopExercise;
+package br.ifsp.ic.petshop;
 
 import java.util.Scanner;
 

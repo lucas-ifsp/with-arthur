@@ -1,4 +1,4 @@
-package br.ifsp.ic.Zoo;
+package br.ifsp.ic.zoo;
 
 public class Main {
     public static void main(String[] args) {

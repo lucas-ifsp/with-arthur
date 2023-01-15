@@ -1,4 +1,4 @@
-package br.ifsp.ic.Lista_1;
+package br.ifsp.ic.list;
 
 import java.util.Arrays;
 import java.util.Scanner;

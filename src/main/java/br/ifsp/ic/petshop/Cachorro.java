@@ -1,4 +1,4 @@
-package br.ifsp.ic.PetshopExercise;
+package br.ifsp.ic.petshop;
 
 public class Cachorro {
 
