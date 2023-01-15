@@ -35,6 +35,13 @@ public class Pessoa {
         return new ArrayList<>(cachorros);
     }
 
+    public boolean hasCachorro(String nome){
+        for (Cachorro cachorro : cachorros) {
+            if(cachorro.getNome().equals(nome)) return true;
+        }
+        return false;
+    }
+
     public void addCachorro(Cachorro cachorro){
         this.cachorros.add(cachorro);
     }

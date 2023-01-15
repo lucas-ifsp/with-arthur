@@ -45,7 +45,7 @@ public class Petshop {
         if (clientes.get(cpf) == null)
             throw new IllegalArgumentException("Cpf passado não possuí cliente cadastrado no sistema");
         Pessoa pessoa = clientes.get(cpf);
-        if (!pessoa.getCachorros().contains(nomeCachorro))
+        if (!pessoa.hasCachorro(nomeCachorro))
             throw new IllegalArgumentException("Nome do Cachorro passado não está em posse do cliente.");
         pessoa.removerCachorro(nomeCachorro);
     }
