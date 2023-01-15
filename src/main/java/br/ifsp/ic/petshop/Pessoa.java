@@ -32,7 +32,7 @@ public class Pessoa {
     }
 
     public List<Cachorro> getCachorros() {
-        return cachorros;
+        return new ArrayList<>(cachorros);
     }
 
     public void addCachorro(Cachorro cachorro){
