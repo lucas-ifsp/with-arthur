@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws ParseException {
-        final ArrayList<Person> persons = new ArrayList<Person>();
-        final ArrayList<Autentication> autentications = new ArrayList<Autentication>();
+        final ArrayList<Person> persons = new ArrayList<>();
+        final ArrayList<Autentication> autentications = new ArrayList<>();
         final var scanner = new Scanner(System.in);
         final var formatter = new SimpleDateFormat("dd/MM/yyyy");
-        int opc = 0;
+        int opc;
 
         do {
             System.out.println("1. Add Person");
@@ -27,13 +27,13 @@ public class Main {
             System.out.println("0. Exit");
             opc = Integer.parseInt(scanner.nextLine());
 
-            String name = null;
-            String sex = null;
-            Date birthDate = null;
-            String password = null;
-            String user = null;
-            Optional<Person> findPerson = null;
-            Optional<Autentication> findAutentication = null;
+            String name ;
+            String sex;
+            Date birthDate;
+            String password;
+            String user;
+            Optional<Person> findPerson;
+            Optional<Autentication> findAutentication;
 
             switch (opc) {
                 case 0:
@@ -57,17 +57,17 @@ public class Main {
                     }
 
                     System.out.println("What person do you want to add an autentication?");
-                    persons.stream().forEach(System.out::println);
+                    persons.forEach(System.out::println);
                     System.out.println("ID: ");
                     int id = Integer.parseInt(scanner.nextLine());
                     findPerson = persons.stream().filter(person -> person.getId() == id).findAny();
 
-                    if (!findPerson.isPresent()) {
+                    if (findPerson.isEmpty()) {
                         System.out.println("Person doesn't exist");
                         break;
                     }
 
-                    if (autentications.stream().anyMatch(autentication -> autentication.getPerson().getId() == id)) {
+                    if (autentications.stream().anyMatch(autenticationcheck -> autenticationcheck.getPerson().getId() == id)) {
                         System.out.println("Person already has an autentication");
                         break;
                     }
@@ -81,12 +81,12 @@ public class Main {
 
                 case 3:
 
-                    persons.stream().forEach(System.out::println);
+                    persons.forEach(System.out::println);
                     break;
 
                 case 4:
 
-                    autentications.stream().forEach(System.out::println);
+                    autentications.forEach(System.out::println);
                     break;
 
                 case 5:
@@ -97,12 +97,12 @@ public class Main {
                     }
 
                     System.out.println("What person do you want to remove?");
-                    persons.stream().forEach(System.out::println);
+                    persons.forEach(System.out::println);
                     System.out.println("ID: ");
                     id = Integer.parseInt(scanner.nextLine());
                     findPerson = persons.stream().filter(person -> person.getId() == id).findAny();
 
-                    if (!findPerson.isPresent()) {
+                    if (findPerson.isEmpty()) {
                         System.out.println("Person doesn't exist");
                         break;
                     }
@@ -121,17 +121,17 @@ public class Main {
                     }
 
                     System.out.println("What User autentication do you want to remove?");
-                    autentications.stream().forEach(autentication -> System.out.println("\nUser ID: " + autentication.getPerson().getId() + "\nUser: " + autentication.getUser() + "\nPerson Name: " + autentication.getPerson().getName()));
+                    autentications.forEach(autentication -> System.out.println("\nUser ID: " + autentication.getPerson().getId() + "\nUser: " + autentication.getUser() + "\nPerson Name: " + autentication.getPerson().getName()));
                     System.out.println("\n User id you want remove: ");
                     int personId = Integer.parseInt(scanner.nextLine());
 
-                    if (!persons.stream().filter(person -> person.getId() == personId).findAny().isPresent()) {
+                    if (persons.stream().noneMatch(person -> person.getId() == personId)) {
                         System.out.println("Person doesn't exist");
                         break;
                     }
 
                     findAutentication = autentications.stream().filter(autentication -> autentication.getPerson().getId() == personId).findAny();
-                    if (!findAutentication.isPresent()) {
+                    if (findAutentication.isEmpty()) {
                         System.out.println("Autentication doesn't exist");
                         break;
                     }
